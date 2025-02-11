@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Examples</title>
+    <script defer src="script.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      h1 {
+        color: #333;
+      }
+      .example {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      button {
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Examples</h1>
+
+    <div class="example">
+      <h2>Example 1: Click Counter</h2>
+      <p>Click the button to increase the count.</p>
+      <button onclick="incrementCounter()">Click Me</button>
+      <p>Count: <span id="counter">0</span></p>
+    </div>
+
+    <div class="example">
+      <h2>Example 2: Change Background Color</h2>
+      <p>Click the button to change the background color randomly.</p>
+      <button onclick="changeBackgroundColor()">Change Color</button>
+    </div>
+
+    <div class="example">
+      <h2>Example 3: Simple To-Do List</h2>
+      <input type="text" id="todoInput" placeholder="Enter a task" />
+      <button onclick="addTodo()">Add Task</button>
+      <ul id="todoList"></ul>
+    </div>
+
+    <script>
+      let count = 0;
+      function incrementCounter() {
+        count++;
+        document.getElementById("counter").textContent = count;
+      }
+
+      function changeBackgroundColor() {
+        const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+        document.body.style.backgroundColor =
+          colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      function addTodo() {
+        const input = document.getElementById("todoInput");
+        if (input.value.trim() !== "") {
+          const list = document.getElementById("todoList");
+          const listItem = document.createElement("li");
+          listItem.textContent = input.value;
+          list.appendChild(listItem);
+          input.value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
