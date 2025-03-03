@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My React Page</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body
+    id="body"
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      transition: background-color 0.5s ease;
+    "
+  >
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function Greeting() {
+        const [clickCount, setClickCount] = React.useState(0);
+        const [message, setMessage] = React.useState(
+          "Hello, welcome to my React page!"
+        );
+
+        const colors = [
+          "#FF6347", // Tomato red
+          "#32CD32", // Lime green
+          "#FFD700", // Gold
+          "#00BFFF", // Deep Sky Blue
+          "#FF69B4", // Hot pink
+        ];
+
+        const changeMessageAndColor = () => {
+          const newClickCount = clickCount + 1;
+          setClickCount(newClickCount);
+
+          const colorIndex = newClickCount % colors.length;
+
+          document.body.style.backgroundColor = colors[colorIndex];
+
+          if (newClickCount === 1) {
+            setMessage("404: React not found... Just kidding, more to come.");
+          } else if (newClickCount === 2) {
+            setMessage("Opening a new React framework... Stay tuned!");
+          } else if (newClickCount === 3) {
+            setMessage("Now you’re in another React framework!");
+          } else if (newClickCount === 4) {
+            setMessage("Do we like this color?");
+          } else {
+            setMessage("Or this color?");
+          }
+        };
+
+        return (
+          <div style={{ textAlign: "center" }}>
+            <h1 style={{ fontFamily: "Arial, sans-serif", color: "#333" }}>
+              {message}
+            </h1>
+            {clickCount >= 2 && (
+              <div>
+                <h2>Welcome to the new framework!</h2>
+                <p>
+                  Here, we could load another framework or UI. Feel free to
+                  expand!
+                </p>
+              </div>
+            )}
+            <button
+              onClick={changeMessageAndColor}
+              style={{
+                padding: "10px 20px",
+                fontSize: "16px",
+                backgroundColor: "#007BFF",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+                marginTop: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                transition: "all 0.3s ease",
+              }}
+              onMouseOver={(e) =>
+                (e.target.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.2)")
+              } // Hover effect for shadow
+              onMouseOut={(e) =>
+                (e.target.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)")
+              } // Reset shadow
+            >
+              Click Me
+            </button>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<Greeting />);
+    </script>
+  </body>
+</html>
