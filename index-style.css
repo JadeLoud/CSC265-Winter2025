@@ -1,0 +1,13 @@
+.fun-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .fun-link:hover {
+    transform: scale(1.1);
+    background-color: #ff5733 !important;
+    color: white !important;
+  }
+  
