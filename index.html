@@ -35,7 +35,7 @@
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
       }
 
-      /* Optional: Use a unique color for the "Show/Hide Assignments" button */
+      /* Used a unique color for the "Show/Hide Assignments" button */
       #hideAssignments {
         background-color: #28a745; /* Green background */
         color: white; /* White text */
@@ -68,15 +68,9 @@
           class="img-fluid rounded-circle"
           width="200"
         />
-        <p>
-          <a href="jsExamples.html" class="btn btn-info mt-3"
-            >Check out my JavaScript Examples!</a
-          >
-        </p>
       </section>
 
       <section id="projects" class="mt-5">
-        <!-- Move the "Hide Assignments" button above the title -->
         <button class="btn btn-custom" id="hideAssignments">
           Hide Assignments
         </button>
@@ -84,9 +78,18 @@
         <h2 class="text-purple">Assignments</h2>
         <ul>
           <li class="text-success">Assignment 1:</li>
+
+          <li>
+            <a href="jsExamples.html" class="btn btn-warning mt-2 fun-link">
+              Check out my JavaScript Examples!
+            </a>
+          </li>
+
+          <li class="text-success">Assignment 2:</li>
+
           <li>
             <a href="myReact.html" class="btn btn-warning mt-2 fun-link">
-              🚀 Try My Interactive Page!
+              Try My Interactive Page!
             </a>
           </li>
         </ul>
@@ -131,10 +134,10 @@
         // Toggle visibility of "Assignments" section
         $("#hideAssignments").click(function () {
           // Toggle the visibility of the "Assignments" list
-          $("#projects").find("ul").toggle();
+          $("ul").toggle(); // This will toggle all the <ul> sections
 
           // Change the button text based on visibility
-          if ($("#projects").find("ul").is(":visible")) {
+          if ($("ul").is(":visible")) {
             $("#hideAssignments").text("Hide Assignments");
           } else {
             $("#hideAssignments").text("Show Assignments");
