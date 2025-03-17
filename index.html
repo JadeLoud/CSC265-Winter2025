@@ -56,11 +56,8 @@
         <h2 class="text-info">About Me</h2>
         <p>
           My name is Jade Loud. I am currently studying Web Development at
-          Sullivan University.
-        </p>
-        <p>
-          This is my homepage where I will showcase my assignments, exams, and
-          projects from Winter 2025.
+          Sullivan University. This is my homepage where I will showcase my
+          assignments, exams, and projects from Winter 2025.
         </p>
         <img
           src="images/IMG_2813.jpg"
@@ -108,7 +105,7 @@
         <h2 class="text-success">Contact Me</h2>
         <p>
           If you would like to reach out, feel free to contact me at
-          <strong>email@example.com</strong>.
+          <strong>jadeloud16@gmail.com</strong>.
         </p>
       </section>
     </div>
@@ -145,12 +142,12 @@
         });
 
         // Change color of "About Me" on hover
-        $("#about").hover(
+        $("#about p").hover(
           function () {
-            $(this).css("color", "blue"); // Change text color to blue on hover
+            $(this).css("color", "pink").css("text-decoration", "underline"); // Change color to pink and underline
           },
           function () {
-            $(this).css("color", ""); // Reset text color after hover
+            $(this).css("color", "").css("text-decoration", "none"); // Reset styles after hover
           }
         );
       });
